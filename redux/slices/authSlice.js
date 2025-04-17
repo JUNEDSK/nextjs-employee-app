@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
   token: null,
   user: null,
+  profileImage: null, // ✅ Add this for image upload
 }
 
 const authSlice = createSlice({
@@ -15,12 +16,16 @@ const authSlice = createSlice({
     setUser: (state, action) => {
       state.user = action.payload
     },
+    setProfileImage: (state, action) => {
+      state.profileImage = action.payload 
+    },
     logout: (state) => {
       state.token = null
       state.user = null
+      state.profileImage = null 
     },
   },
 })
 
-export const { setToken, setUser, logout } = authSlice.actions
+export const { setToken, setUser, setProfileImage, logout } = authSlice.actions
 export default authSlice.reducer
